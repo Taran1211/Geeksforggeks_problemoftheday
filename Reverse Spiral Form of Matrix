@@ -1,0 +1,53 @@
+public int[] reverseSpiral(int R, int C, int[][] a)
+    {
+    int tc=R*C;
+    int arr[]=new int[R*C];
+    int minr=0;
+    int maxr=R-1;
+    int minc=0;
+    int maxc=C-1;
+    int count=0;
+    while(count<tc)
+    {
+    for(int i=minr,j=minc;j<=maxc && count<tc;j++)
+    {
+    arr[count]=a[i][j];
+    count++;
+    }
+    minr++;
+    for(int j=maxc,i=minr;i<=maxr && count<tc;i++)
+    {
+    arr[count]=a[i][j];
+    count++;
+    }
+    maxc--;
+    for(int i=maxr,j=maxc;j>=minc && count<tc;j--)
+    {
+    arr[count]=a[i][j];
+    count++;
+    }
+    maxr--;
+    for(int j=minc,i=maxr;i>=minr && count<tc;i--)
+    {
+    arr[count]=a[i][j];
+    count++;
+    }
+    minc++;
+    
+    
+    }
+  reverse(arr,0,arr.length-1);
+    return arr;
+    }
+    public static void reverse(int[]arr,int i,int j)
+    {
+   while(i<=j)
+   {
+    int temp=arr[i];
+    arr[i]=arr[j];
+    arr[j]=temp;
+    i++;
+    j--;
+   }
+    }
+}
